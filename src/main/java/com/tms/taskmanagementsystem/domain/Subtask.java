@@ -19,7 +19,7 @@ public class Subtask {
     @Column(name = "task_status")
     private TaskStatus taskStatus;
     @ManyToOne
-    @JoinColumn(name = "user_id",nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private User assignee;
     @ManyToOne
     @JoinColumn(name = "task_id", nullable = false)

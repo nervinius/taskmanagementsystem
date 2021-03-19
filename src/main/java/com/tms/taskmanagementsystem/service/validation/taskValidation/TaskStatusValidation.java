@@ -31,8 +31,8 @@ public class TaskStatusValidation implements TaskValidationRule {
         }
         if (taskDto.getTaskStatus().equals(TaskStatus.Done)) {
             List<Subtask> subtasks = subtaskRepository.findAllByTask(taskConverter.convert(taskDto));
-            for (Subtask subtask: subtasks) {
-                if (subtask.getTaskStatus().equals(TaskStatus.Backlog) || subtask.getTaskStatus().equals(TaskStatus.DevInProgress)){
+            for (Subtask subtask : subtasks) {
+                if (subtask.getTaskStatus().equals(TaskStatus.Backlog) || subtask.getTaskStatus().equals(TaskStatus.DevInProgress)) {
                     throw new ValidationException("To close task all subtasks should have status - Done");
                 }
             }

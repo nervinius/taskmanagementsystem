@@ -9,9 +9,11 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface SubtaskRepository extends JpaRepository<Subtask,Long> {
+public interface SubtaskRepository extends JpaRepository<Subtask, Long> {
 
     boolean existsBySubtaskName(String subtaskName);
+
     List<Subtask> findAllByAssignee(User user);
-    List<Subtask>  findAllByTask(Task task);
+
+    List<Subtask> findAllByTask(Task task);
 }

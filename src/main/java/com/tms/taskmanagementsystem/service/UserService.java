@@ -68,14 +68,14 @@ public class UserService {
     }
 
     public List<TaskDto> getAllUserTasks(Long id) {
-        User user = userRepository.findById(id).orElseThrow(() -> new NoSuchElementException( "User By id not found - " + id));
+        User user = userRepository.findById(id).orElseThrow(() -> new NoSuchElementException("User By id not found - " + id));
         return taskRepository.findAllByAssignee(user).stream()
                 .map(task -> taskConverter.convert(task))
                 .collect(Collectors.toList());
     }
 
     public List<SubtaskDto> getAllUserSubtasks(Long id) {
-        User user = userRepository.findById(id).orElseThrow(() -> new NoSuchElementException( "User By id not found - " + id));
+        User user = userRepository.findById(id).orElseThrow(() -> new NoSuchElementException("User By id not found - " + id));
         return subtaskRepository.findAllByAssignee(user).stream()
                 .map(subtask -> subtaskConverter.convert(subtask))
                 .collect(Collectors.toList());

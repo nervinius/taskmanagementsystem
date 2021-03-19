@@ -11,6 +11,7 @@ import java.util.List;
 public interface TaskRepository extends JpaRepository<Task, Long> {
 
     boolean existsByTaskName(String taskName);
+
     List<Task> findAllByAssignee(User user);
 
 }

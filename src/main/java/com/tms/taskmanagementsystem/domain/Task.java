@@ -26,7 +26,7 @@ public class Task {
     private Long timeSpentInMinutes;
 
     @ManyToOne
-    @JoinColumn(name = "user_id",nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     @JsonBackReference
     private User assignee;
     @OneToMany(mappedBy = "task")
